@@ -13,10 +13,6 @@ export class SignUpController implements Controller {
         this.emailValidator = emailValidator
     }
 
-
-
-
-
     handle(httpRequest: HttpRequest): HttpResponse {
         try {
             const requiredFields = ['name', 'email', 'password', 'passwordConfirmation']
