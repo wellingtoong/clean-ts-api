@@ -1,0 +1,6 @@
+{
+    "extends" : "stardand-with-typescript",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    }
+}
