@@ -4,7 +4,7 @@ import { MongoHelper } from "../../infra/db/mongodb/helpers/mongo-helper";
 
 describe("SignUo Routes", () => {
   beforeAll(async () => {
-    await MongoHelper.connet(process.env.MONGO_URL);
+    await MongoHelper.connect(process.env.MONGO_URL);
   });
 
   afterAll(async () => {
