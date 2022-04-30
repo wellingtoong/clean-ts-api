@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import { Collection, MongoClient } from "mongodb";
 
 export const MongoHelper = {
   // inicializando o client como null pq a sintax do js é a mesma que o do js,
@@ -15,4 +15,8 @@ export const MongoHelper = {
   async disconnect(): Promise<void>  {
     await this.client.close();
   },
+
+  getCollection(name: string): Collection {
+    return this.client.db().collection(name)
+  }
 };
