@@ -12,8 +12,8 @@ describe("SignUo Routes", () => {
   });
 
   beforeEach(async () => {
-    const accountCollection = MongoHelper.getCollection("accounts");
-    accountCollection.deleteMany({});
+    const accountCollection = await MongoHelper.getCollection("accounts");
+    await accountCollection.deleteMany({});
   });
 
   test("Should return an account on sucess", async () => {
