@@ -13,12 +13,12 @@ const makeEmailValidator = (): EmailValidator => {
 }
 
 const makeAddAccount = (): AddAccount => {
-    class addAccountStub implements AddAccount {
+    class AddAccountStub implements AddAccount {
         async add(account: AddAccountModel): Promise<AccountModel> {
             return new Promise(resolve => resolve(makeFakeAccount()))
         }
     }
-    return new addAccountStub()
+    return new AddAccountStub()
 }
 
 const makeFakeAccount = (): AccountModel => ({
@@ -104,7 +104,7 @@ describe('SignUp Controller', () => {
             }
         }
         const httpReponse = await sut.handle(httpRequest)
-        expect(httpReponse).toEqual(badRequest(new MissingParamError('password')))
+        expect(httpReponse).toEqual(badRequest(new MissingParamError('passwordConfirmation')))
     })
 
     test('Should return 400 if no password confirmation fails', async () => {
@@ -169,6 +169,6 @@ describe('SignUp Controller', () => {
     test('Should return 200 if valid data is provided', async () => {
         const { sut } = makeSut()
         const httpReponse = await sut.handle(makeFakeRequest())
-        expect(httpReponse).toEqual(ok(makeAddAccount()))
+        expect(httpReponse).toEqual(ok(makeFakeAccount()))
     })
 })
