@@ -24,3 +24,4 @@ const makeLoginController = () => {
     return new log_controller_decorator_1.LogControllerDecorator(loginController, logMongoRepository);
 };
 exports.makeLoginController = makeLoginController;
+//# sourceMappingURL=login-factory.js.map

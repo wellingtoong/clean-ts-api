@@ -18,3 +18,4 @@ __exportStar(require("./invalid-param-error"), exports);
 __exportStar(require("./missing-param-error"), exports);
 __exportStar(require("./server-error"), exports);
 __exportStar(require("./unauthorized-error"), exports);
+//# sourceMappingURL=index.js.map

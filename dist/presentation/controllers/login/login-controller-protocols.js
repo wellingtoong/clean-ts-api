@@ -17,3 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("../../protocols"), exports);
 __exportStar(require("../../protocols/validation"), exports);
 __exportStar(require("../../../domain/usecases/authentication"), exports);
+//# sourceMappingURL=login-controller-protocols.js.map

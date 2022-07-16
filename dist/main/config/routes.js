@@ -34,3 +34,4 @@ exports.default = (app) => {
         }
     });
 };
+//# sourceMappingURL=routes.js.map

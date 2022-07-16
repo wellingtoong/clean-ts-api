@@ -18,3 +18,4 @@ __exportStar(require("../../protocols"), exports);
 __exportStar(require("../../protocols/validation"), exports);
 __exportStar(require("../../../domain/usecases/add-account"), exports);
 __exportStar(require("../../../domain/models/account"), exports);
+//# sourceMappingURL=singup-protocols.js.map

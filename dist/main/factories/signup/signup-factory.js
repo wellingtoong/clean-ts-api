@@ -18,3 +18,4 @@ const makeSignUpController = () => {
     return new log_controller_decorator_1.LogControllerDecorator(signupController, logMongoRepository);
 };
 exports.makeSignUpController = makeSignUpController;
+//# sourceMappingURL=signup-factory.js.map

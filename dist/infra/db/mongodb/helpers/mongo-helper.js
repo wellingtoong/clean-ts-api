@@ -26,3 +26,4 @@ exports.MongoHelper = {
         return Object.assign({}, collectionWithoutId, { id: _id.toHexString() });
     },
 };
+//# sourceMappingURL=mongo-helper.js.map

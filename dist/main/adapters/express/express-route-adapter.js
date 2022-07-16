@@ -18,3 +18,4 @@ const adaptRoute = (controller) => {
     };
 };
 exports.adaptRoute = adaptRoute;
+//# sourceMappingURL=express-route-adapter.js.map
