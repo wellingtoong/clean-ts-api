@@ -1,64 +1,64 @@
-import request from "supertest";
-import app from "../config/app";
-import { MongoHelper } from "../../infra/db/mongodb/helpers/mongo-helper";
-import { Collection } from "mongodb";
+import request from 'supertest'
+import app from '../config/app'
+import { MongoHelper } from '../../infra/db/mongodb/helpers/mongo-helper'
+import { Collection } from 'mongodb'
 import { hash } from 'bcrypt'
 
 let accountCollection: Collection
 
-describe("Login Routes", () => {
+describe('Login Routes', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(process.env.MONGO_URL);
-  });
+    await MongoHelper.connect(process.env.MONGO_URL)
+  })
 
   afterAll(async () => {
-    await MongoHelper.disconnect();
-  });
+    await MongoHelper.disconnect()
+  })
 
   beforeEach(async () => {
-    accountCollection = await MongoHelper.getCollection("accounts");
-    await accountCollection.deleteMany({});
-  });
+    accountCollection = await MongoHelper.getCollection('accounts')
+    await accountCollection.deleteMany({})
+  })
 
-  describe("POST /signup", () => {
-    test("Should return 200 on signup", async () => {
+  describe('POST /signup', () => {
+    test('Should return 200 on signup', async () => {
       await request(app)
-        .post("/api/signup")
+        .post('/api/signup')
         .send({
-          name: "Wellington",
-          email: "wellington.gonzalez@hotmail.com",
-          password: "123",
-          passwordConfirmation: "123",
+          name: 'Wellington',
+          email: 'wellington.gonzalez@hotmail.com',
+          password: '123',
+          passwordConfirmation: '123'
         })
-        .expect(200);
-    });
-  });
+        .expect(200)
+    })
+  })
 
-  describe("POST /login", () => {
-    test("Should return 200 on login", async () => {
+  describe('POST /login', () => {
+    test('Should return 200 on login', async () => {
       const password = await hash('123', 12)
       await accountCollection.insertOne({
-        name: "Wellington",
-        email: "wellington.gonzalez@hotmail.com",
-        password,
+        name: 'Wellington',
+        email: 'wellington.gonzalez@hotmail.com',
+        password
       })
       await request(app)
-        .post("/api/login")
+        .post('/api/login')
         .send({
-          email: "wellington.gonzalez@hotmail.com",
-          password: "123",
+          email: 'wellington.gonzalez@hotmail.com',
+          password: '123'
         })
-        .expect(200);
-    });
+        .expect(200)
+    })
 
-    test("Should return 401 on login", async () => {
+    test('Should return 401 on login', async () => {
       await request(app)
-        .post("/api/login")
+        .post('/api/login')
         .send({
-          email: "wellington.gonzalez@hotmail.com",
-          password: "123",
+          email: 'wellington.gonzalez@hotmail.com',
+          password: '123'
         })
-        .expect(401);
-    });
-  });
-});
+        .expect(401)
+    })
+  })
+})
