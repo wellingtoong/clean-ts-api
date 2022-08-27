@@ -22,7 +22,7 @@ describe('Survey Mongo Repository', () => {
     return new SurveyMongoRepository()
   }
 
-  test('Should return an account on add sucess', async () => {
+  test('Should add a Survey on sucess', async () => {
     const sut = makeSut()
     await sut.add({
       question: 'any_question',
