@@ -1,4 +1,4 @@
-import { HttpResponse, HttpRequest, Controller, AddAccount, Authentication } from './singup-protocols'
+import { HttpResponse, HttpRequest, Controller, AddAccount, Authentication } from './singup-controller-protocols'
 import { badRequest, serverError, ok, forbidden } from '@/presentation/helpers/http/http-helper'
 import { Validation } from '@/presentation/protocols/validation'
 import { EmailInUseError } from '@/presentation/errors'
