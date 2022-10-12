@@ -1,4 +1,4 @@
-import { SurveyAwnswerModel } from '../models/survey'
+import { SurveyAwnswerModel } from '@/domain/models/survey'
 
 export interface AddSurveyModel {
   question: string
