@@ -24,15 +24,16 @@ export const MongoHelper = {
   },
 
   map: (collection: any): any => {
-    if (collection.length) {
-      const newCollection = []
-      collection.forEach(item => {
-        const { _id, ...collectionWithoutId } = item
-        newCollection.push(Object.assign({}, collectionWithoutId, { id: _id.toHexString() }))
-      })
-      return newCollection
-    }
     const { _id, ...collectionWithoutId } = collection
     return Object.assign({}, collectionWithoutId, { id: _id.toHexString() })
+  },
+
+  mapCollection: (collection: any): any => {
+    const newCollection = []
+    collection.forEach(item => {
+      const { _id, ...collectionWithoutId } = item
+      newCollection.push(Object.assign({}, collectionWithoutId, { id: _id.toHexString() }))
+    })
+    return newCollection
   }
 }
