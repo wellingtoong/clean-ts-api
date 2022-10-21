@@ -6,7 +6,7 @@ import { mockLoadAccountByTokenRepository } from '@/data/test'
 const makeDecrypter = (): Decrypter => {
   class DecrypterStub implements Decrypter {
     async decrypt (value: string): Promise<string> {
-      return new Promise(resolve => resolve('any_value'))
+      return Promise.resolve('any_value')
     }
   }
   return new DecrypterStub()
@@ -39,7 +39,7 @@ describe('DbLoadAccountByToken Usecase', () => {
 
   test('Shoul return null if Decrypter returns null', async () => {
     const { sut, decrypterStub } = makeSut()
-    jest.spyOn(decrypterStub, 'decrypt').mockResolvedValue(new Promise(resolve => resolve(null)))
+    jest.spyOn(decrypterStub, 'decrypt').mockResolvedValue(Promise.resolve(null))
     const account = await sut.load('any_token', 'any_role')
     expect(account).toBeNull()
   })
@@ -53,7 +53,7 @@ describe('DbLoadAccountByToken Usecase', () => {
 
   test('Shoul return null if LoadAccountByTokenRepository returns null', async () => {
     const { sut, loadAccountByTokenRepositoryStub } = makeSut()
-    jest.spyOn(loadAccountByTokenRepositoryStub, 'loadByToken').mockResolvedValue(new Promise(resolve => resolve(null)))
+    jest.spyOn(loadAccountByTokenRepositoryStub, 'loadByToken').mockResolvedValue(Promise.resolve(null))
     const account = await sut.load('any_token', 'any_role')
     expect(account).toBeNull()
   })
