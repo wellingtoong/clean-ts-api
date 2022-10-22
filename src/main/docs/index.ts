@@ -34,8 +34,8 @@ export default {
     account: accountSchema,
     loginParams: loginParamsSchema,
     error: errorSchema,
-    surveys: surveySchema,
-    survey: surveysSchema,
+    surveys: surveysSchema,
+    survey: surveySchema,
     surveyAnswer: surveyAnswerSchema
   },
   components: {
