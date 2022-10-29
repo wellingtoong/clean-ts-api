@@ -5,7 +5,7 @@ export type SurveyModel = {
   date: Date
 }
 
-export type SurveyAwnswerModel = {
+type SurveyAwnswerModel = {
   image?: string
   answer: string
 }
