@@ -1,5 +1,6 @@
-import { LoadSurveyResultController } from './load-survey-result-controller'
+
 import { HttpRequest, LoadSurveyById, LoadSurveyResult } from './load-survey-result-controller-protocols'
+import { LoadSurveyResultController } from './load-survey-result-controller'
 import { forbidden, ok, serverError } from '@/presentation/helpers/http/http-helper'
 import { InvalidParamError } from '@/presentation/errors'
 import { mockLoadSurveyById, mockLoadSurveyResult } from '@/presentation/test'
