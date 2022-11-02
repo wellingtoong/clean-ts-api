@@ -8,9 +8,9 @@ import { UpdateAccessTokenRepository } from '@/data/protocols/db/account/update-
 import { ObjectId } from 'mongodb'
 
 export class AccountMongoRepository implements AddAccountRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository, LoadAccountByTokenRepository {
-  async add (accountData: AddAccountParams): Promise<AccountModel> {
+  async add (data: AddAccountParams): Promise<AccountModel> {
     const accountCollection = await MongoHelper.getCollection('accounts')
-    const result = await accountCollection.insertOne(accountData)
+    const result = await accountCollection.insertOne(data)
     const { insertedId: id } = result
     const accountById = await accountCollection.findOne({ _id: id })
     return MongoHelper.map(accountById)

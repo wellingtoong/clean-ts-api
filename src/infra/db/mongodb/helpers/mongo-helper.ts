@@ -1,8 +1,7 @@
 import { Collection, MongoClient } from 'mongodb'
 
 export const MongoHelper = {
-  // inicializando o client como null pq a sintax do js é a mesma que o do js,
-  // dessa forma nao comflita
+  /** Inicializando o client como null, porque a sintax do Javascript é a mesma que o do Typescript e dessa forma nao conflita */
   client: null as MongoClient,
   uri: null as string,
 
@@ -24,8 +23,8 @@ export const MongoHelper = {
   },
 
   map: (data: any): any => {
-    const { _id, ...collectionWithoutId } = data
-    return Object.assign({}, collectionWithoutId, { id: _id.toHexString() })
+    const { _id, ...rest } = data
+    return Object.assign({}, rest, { id: _id.toHexString() })
   },
 
   mapCollection: (collection: any[]): any[] => {
