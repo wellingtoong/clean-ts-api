@@ -28,6 +28,8 @@ export default (app: Express): void => {
   const server = new ApolloServer({
     resolvers,
     typeDefs,
+    schemaDirectives,
+    context: ({ req }) => ({ req }),
     plugins: [{
       requestDidStart: async () => ({
         willSendResponse: async ({ response, errors }) => handleErrors(response, errors)
