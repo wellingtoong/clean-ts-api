@@ -3,11 +3,12 @@ export const surveyPath = {
     security: [{
       apiKeyAuth: []
     }],
-    tags: ['Survey'],
-    summary: 'API list all surveys',
+    tags: ['Enquete'],
+    summary: 'API para listar todas as enquetes',
+    description: 'Essa rota só pode ser executada por **usuários autenticados**',
     responses: {
       200: {
-        description: 'Successful operation',
+        description: 'Sucesso',
         content: {
           'application/json': {
             schema: {
@@ -15,6 +16,9 @@ export const surveyPath = {
             }
           }
         }
+      },
+      204: {
+        description: 'Sucesso, mas sem dados para exibir'
       },
       403: {
         $ref: '#/components/forbidden'
@@ -31,10 +35,11 @@ export const surveyPath = {
     security: [{
       apiKeyAuth: []
     }],
-    tags: ['Survey'],
-    summary: 'API to create survey',
+    tags: ['Enquete'],
+    summary: 'API para criar uma enquete',
+    description: 'Essa rota só pode ser executada por **administradores**',
     requestBody: {
-      description: 'Request operation',
+      required: true,
       content: {
         'application/json': {
           schema: {
@@ -45,7 +50,7 @@ export const surveyPath = {
     },
     responses: {
       204: {
-        description: 'Success'
+        description: 'Sucesso, mas sem dados para exibir'
       },
       403: {
         $ref: '#/components/forbidden'

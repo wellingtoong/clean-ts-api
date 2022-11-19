@@ -1,5 +1,5 @@
 export const unauthorized = {
-  description: 'Invalid credentials',
+  description: 'Credenciais inválidas',
   content: {
     'application/json': {
       schema: {

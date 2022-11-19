@@ -1,12 +1,15 @@
-import setupMiddleware from './middlewares'
-import setupRoutes from './routes'
-import setupStaticFiles from '././static-files'
-import setupSwagger from './config-swagger'
-import express from 'express'
+import setupMiddlewares from '@/main/config/middlewares'
+import setupRoutes from '@/main/config/routes'
+import setupStaticFiles from '@/main/config/static-files'
+import setupSwagger from '@/main/config/swagger'
 
-const app = express()
-setupStaticFiles(app)
-setupSwagger(app)
-setupMiddleware(app)
-setupRoutes(app)
-export default app
+import express, { Express } from 'express'
+
+export const setupApp = async (): Promise<Express> => {
+  const app = express()
+  setupStaticFiles(app)
+  setupSwagger(app)
+  setupMiddlewares(app)
+  setupRoutes(app)
+  return app
+}

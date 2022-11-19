@@ -1,9 +1,10 @@
 export const loginPath = {
   post: {
     tags: ['Login'],
-    summary: 'API to user authentication',
+    summary: 'API para autenticar usuário',
+    description: 'Essa rota pode ser executada por **qualquer usuário**',
     requestBody: {
-      description: 'Request operation',
+      required: true,
       content: {
         'application/json': {
           schema: {
@@ -14,7 +15,7 @@ export const loginPath = {
     },
     responses: {
       200: {
-        description: 'Successful operation',
+        description: 'Sucesso',
         content: {
           'application/json': {
             schema: {
